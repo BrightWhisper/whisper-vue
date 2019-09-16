@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/BrightWhisper/whisper-vue/issues"
   },
-  "homepage": "https://github.com/BrightWhisper/whisper-vue#readme"
+  "homepage": "https://github.com/BrightWhisper/whisper-vue#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
