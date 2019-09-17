@@ -1,8 +1,7 @@
 <template>
     <button class="w-button" :class="{[`icon-${iconPosition}`]: true}">
-        <svg v-if="icon" class="icon" aria-hidden="true">
-            <use :xlink:href=`#i-${icon}`></use>
-        </svg>
+        <w-icon v-if="icon" class="icon" :name="icon"></w-icon>
+        <w-icon v-if="icon" class="icon loading" :name="icon"></w-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -10,11 +9,30 @@
 </template>
 <script>
     export default {
-        props: ['icon', 'iconPosition']
-    }
+        // props: ['icon','iconPosition']
+        props: {
+            icon: {},
+            iconPosition: {
+                type:String,
+                default: 'left',
+                validator(value){
+                    // 属性检查器，必须是left或者right
+                    return value === 'left' || value === 'right';
+                }
+            }
+        }
+}
 </script>
 <style lang="scss">
     .w-button {
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
         font-size: var(--font-size);
         height: var(--button-height);
         padding: 0 1em;
@@ -53,6 +71,9 @@
             > .content{
                 order: 1;
             }
+        }
+        .loading{
+            animation: spin 1.5s infinite linear;
         }
     }
 </style>
