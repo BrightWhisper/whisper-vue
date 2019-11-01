@@ -1,7 +1,7 @@
 <template>
-    <button class="w-button" :class="{[`icon-${iconPosition}`]: true}">
-        <w-icon v-if="icon" class="icon" :name="icon"></w-icon>
-        <w-icon v-if="icon" class="icon loading" :name="icon"></w-icon>
+    <button class="w-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
+        <w-icon v-if="icon && !loading" class="icon" :name="icon"></w-icon>
+        <w-icon v-if="loading" class="loading" name="loading"></w-icon>
         <div class="content">
             <slot></slot>
         </div>
@@ -9,9 +9,12 @@
 </template>
 <script>
     export default {
-        // props: ['icon','iconPosition']
         props: {
             icon: {},
+            loading: {
+                type:Boolean,
+                default: false
+            },
             iconPosition: {
                 type:String,
                 default: 'left',
@@ -73,7 +76,7 @@
             }
         }
         .loading{
-            animation: spin 1.5s infinite linear;
+            animation: spin 1s infinite linear;
         }
     }
 </style>
