@@ -12,19 +12,19 @@
         props: {
             icon: {},
             loading: {
-                type:Boolean,
+                type: Boolean,
                 default: false
             },
             iconPosition: {
-                type:String,
+                type: String,
                 default: 'left',
-                validator(value){
+                validator(value) {
                     // 属性检查器，必须是left或者right
                     return value === 'left' || value === 'right';
                 }
             }
         }
-}
+    }
 </script>
 <style lang="scss">
     .w-button {
@@ -46,6 +46,7 @@
         justify-content: center;
         align-items: center;
         vertical-align: middle;
+
         &:hover {
             border-color: var(--border-color-hover);
         }
@@ -57,25 +58,30 @@
         &:focus {
             outline: none;
         }
+
         > .icon {
             order: 1;
             margin-right: .3em;
             margin-left: 0;
         }
-        > .content{
+
+        > .content {
             order: 2;
         }
+
         &.icon-right {
             > .icon {
                 order: 2;
                 margin-left: .3em;
                 margin-right: 0;
             }
-            > .content{
+
+            > .content {
                 order: 1;
             }
         }
-        .loading{
+
+        .loading {
             animation: spin 1s infinite linear;
         }
     }
