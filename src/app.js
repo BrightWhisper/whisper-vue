@@ -13,9 +13,11 @@ new Vue({
     }
 })
 
-import chai from 'chai'
+import chai from 'chai';
+import spies from 'chai-spies';
 
 const expect = chai.expect;
+chai.use(spies);
 
 // 单元测试
 
@@ -118,10 +120,12 @@ const expect = chai.expect;
         }
     });
     wButton.$mount();
-    wButton.$on('click',function(){
-        console.log(1);
-    })
-    console.log(wButton.$el);
+    // 使用chai-spies进行mock，这里spy是个间谍函数,相当于一个函数的mock
+    let spy = chai.spy(()=>{})
+    // 为click绑定间谍函数
+    wButton.$on('click',spy)
     let button = wButton.$el;
     button.click();
+    // 断言spy被调用了
+    expect(spy).to.have.been.called();
 }
