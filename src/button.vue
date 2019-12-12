@@ -1,14 +1,18 @@
 <template>
     <button class="w-button" :class="{[`icon-${iconPosition}`]: true}" @click="$emit('click')">
         <w-icon v-if="icon && !loading" class="icon" :name="icon"></w-icon>
-        <w-icon v-if="loading" class="loading" name="loading"></w-icon>
+        <w-icon v-if="loading" class="icon loading" name="loading"></w-icon>
         <div class="content">
             <slot></slot>
         </div>
     </button>
 </template>
 <script>
+    import Icon from './icon.vue';
     export default {
+        components:{
+            'w-icon': Icon
+        },
         props: {
             icon: {},
             loading: {
