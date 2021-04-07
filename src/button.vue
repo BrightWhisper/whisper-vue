@@ -22,6 +22,7 @@
 <script>
 import icon from './icon';
 export default {
+  name: 'whisper-button',
   components: {
     'w-icon': icon
   },
@@ -66,6 +67,24 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+$font-size: 14px;
+$button-height: 32px;
+$border-color: #d9d9d9;
+$hover-color: #40a9ff;
+$focus-color: #40a9ff;
+$active-color: #096dd9;
+$default-bg-color: #fff;
+$default-color: #000;
+$disabled-bg-color: #f5f5f5;
+$disabled-color: rgba(0, 0, 0, .25);
+$primary-bg-color:#1890ff;
+$primary-border-color:#1890ff;
+$primary-color:#fff;
+$danger-bg-color:#ff4d4f;
+$danger-border-color:rgb(217, 217, 217);
+$danger-color:#fff;
+$danger-active-color: #d9363e;
+
 .w-button {
   @keyframes span {
     0% {
@@ -75,11 +94,10 @@ export default {
       transform: rotate(360deg);
     }
   }
-  font-size: var(--font-size);
-  height: var(--button-height);
+  font-size: $font-size;
+  height: $button-height;
   padding: 0 1em;
   border-radius: 4px;
-  border: 1px solid #999;
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -91,44 +109,37 @@ export default {
   transition:.2s ease-in-out;
 
   &.default {
-    background: #fff;
-    border: 1px solid rgb(217, 217, 217);
-    color: #000;
+    background: $default-bg-color;
+    border: 1px solid $border-color;
+    color: $default-color;
   }
 
   &.default:focus {
-    border: 1px solid #40a9ff;
-    color: #40a9ff;
+    border: 1px solid $focus-color;
+    color: $focus-color;
   }
 
   &.default:hover {
-    border: 1px solid #40a9ff;
-    color: #40a9ff;
+    border: 1px solid $hover-color;
+    color: $hover-color;
   }
 
   &.default:active {
     opacity: 1;
-    color: #096dd9;
-    border-color: #096dd9
-  }
-
-  &.disabled {
-    background-color: #f5f5f5;
-    border-color: #d9d9d9;
-    color: rgba(0, 0, 0, .25);
-    cursor: not-allowed;
+    color: $active-color;
+    border-color: $active-color;
   }
 
   &.primary {
-    background: #1890ff;
-    border: 1px solid #1890ff;
-    color: #fff;
+    background: $primary-bg-color;
+    border: 1px solid $primary-border-color;
+    color: $primary-color;
   }
 
   &.danger {
-    background: #ff4d4f;
-    border: 1px solid rgb(217, 217, 217);
-    color: #fff;
+    background: $danger-bg-color;
+    border: 1px solid $danger-border-color;
+    color: $danger-color;
   }
 
   &.primary:focus {
@@ -141,7 +152,7 @@ export default {
 
   &.primary:active {
     opacity: 1;
-    background-color: #096dd9;
+    background-color: $active-color;
   }
 
   &.danger:focus {
@@ -154,7 +165,14 @@ export default {
 
   &.danger:active {
     opacity: 1;
-    background-color: #d9363e;
+    background-color: $danger-active-color;
+  }
+
+  &.disabled {
+    border: 1px solid $border-color;
+    background-color: $disabled-bg-color;
+    color: $disabled-color;
+    cursor: not-allowed;
   }
 
   .icon {

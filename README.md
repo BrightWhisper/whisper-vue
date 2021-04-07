@@ -1,5 +1,4 @@
 # whisper-vue
-
 [![Build Status](https://travis-ci.org/BrightWhisper/whisper-vue.svg?branch=master)](https://travis-ci.org/BrightWhisper/whisper-vue)
 
 ## 介绍

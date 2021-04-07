@@ -6,6 +6,7 @@
 <script>
 import './svg.js'
 export default {
+  name: 'whisper-icon',
   props: ['name']
 };
 </script>
