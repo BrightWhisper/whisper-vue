@@ -1,10 +1,10 @@
 {
   "name": "whisper-vue",
-  "version": "0.0.2",
+  "version": "0.0.2-b",
   "description": "一个基于vue的PC端组件库",
   "main": "dist/index.js",
   "scripts": {
-    "parcel": "npx parcel index.html --no-cache",
+    "parcel": "npx parcel index.html --no-cache --no-minify",
     "build": "npx parcel build index.js --no-cache",
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",

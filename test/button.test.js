@@ -84,15 +84,25 @@ describe('Button', () => {
         type: 'danger'
       }
     }).$mount();
+    const vmFault = new Constructor({
+      propsData: {
+        icon: 'setting',
+        type: 'dang'
+      }
+    }).$mount();
     expect(vmDefault.$el.classList.contains('default')).to.be.true;
     expect(vmPrimary.$el.classList.contains('primary')).to.be.true;
     expect(vmDanger.$el.classList.contains('danger')).to.be.true;
+    expect(vmFault.$el.classList.contains('dang')).to.be.false;
+    expect(vmFault.$el.classList.contains('default')).to.be.true;
     vmDefault.$el.remove();
     vmDefault.$destroy();
     vmPrimary.$el.remove();
     vmPrimary.$destroy();
     vmDanger.$el.remove();
     vmDanger.$destroy();
+    vmFault.$el.remove();
+    vmFault.$destroy();
   });
 
   it('可以设置disabled，且设置disabled时候type属性无效', () => {

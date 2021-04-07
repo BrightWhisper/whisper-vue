@@ -5,7 +5,7 @@
          `icon-${iconPosition}`,
           {
             disabled: disabled,
-            [type]: !disabled
+            [computedType]: !disabled
           }
 
       ]
@@ -47,6 +47,11 @@ export default {
     disabled: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    computedType(){
+      return (this.type === 'primary' || this.type === 'danger') ? this.type : 'default';
     }
   },
   methods: {
@@ -115,8 +120,8 @@ export default {
   }
 
   &.primary {
-    background: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    background: #1890ff;
+    border: 1px solid #1890ff;
     color: #fff;
   }
 
