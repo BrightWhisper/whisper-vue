@@ -1,6 +1,6 @@
 {
   "name": "whisper-vue",
-  "version": "0.0.2-b",
+  "version": "0.0.2-beta",
   "description": "一个基于vue的PC端组件库",
   "main": "dist/index.js",
   "scripts": {

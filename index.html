@@ -53,9 +53,11 @@
 
   <br>
   <br>
-  <w-input value="正常"></w-input>
-  <w-input value="只读" readonly></w-input>
-  <w-input value="不可输入" disabled></w-input>
+  <w-input v-model="input1" placeholder="随便写点什么"></w-input>
+  <w-input v-model="input2" readonly></w-input>
+  <w-input v-model="input3" disabled></w-input>
+  <w-input v-model="input4" :error="input4Error" validateFunc="input4Func" placeholder="错误状态"></w-input>
+  <w-input v-model="input5" placeholder="可清除" clearable></w-input>
 </div>
 <script src="./src/app.js"></script>
 </body>

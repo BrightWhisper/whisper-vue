@@ -7,10 +7,7 @@
             disabled: disabled,
             [computedType]: !disabled
           }
-
-      ]
-    "
-          ref="w-button"
+      ]"
           @click="buttonClick">
     <w-icon v-if="loading && !disabled" class="icon loading" name="loading"></w-icon>
     <w-icon v-if="icon && !loading" class="icon" :name="icon"></w-icon>
@@ -21,6 +18,7 @@
 </template>
 <script>
 import icon from './icon';
+
 export default {
   name: 'whisper-button',
   components: {
@@ -51,7 +49,7 @@ export default {
     }
   },
   computed: {
-    computedType(){
+    computedType() {
       return (this.type === 'primary' || this.type === 'danger') ? this.type : 'default';
     }
   },
@@ -77,12 +75,12 @@ $default-bg-color: #fff;
 $default-color: #000;
 $disabled-bg-color: #f5f5f5;
 $disabled-color: rgba(0, 0, 0, .25);
-$primary-bg-color:#1890ff;
-$primary-border-color:#1890ff;
-$primary-color:#fff;
-$danger-bg-color:#ff4d4f;
-$danger-border-color:rgb(217, 217, 217);
-$danger-color:#fff;
+$primary-bg-color: #1890ff;
+$primary-border-color: #1890ff;
+$primary-color: #fff;
+$danger-bg-color: #ff4d4f;
+$danger-border-color: rgb(217, 217, 217);
+$danger-color: #fff;
 $danger-active-color: #d9363e;
 
 .w-button {
@@ -106,7 +104,7 @@ $danger-active-color: #d9363e;
   cursor: pointer;
   overflow: hidden;
   white-space: nowrap;
-  transition:.2s ease-in-out;
+  transition: .2s ease-in-out;
 
   &.default {
     background: $default-bg-color;
@@ -195,6 +193,7 @@ $danger-active-color: #d9363e;
       order: 1;
     }
   }
+
   .loading {
     animation: span 1s infinite linear;
   }
